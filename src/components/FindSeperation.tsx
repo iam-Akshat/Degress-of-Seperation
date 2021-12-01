@@ -24,7 +24,7 @@ export const FindSeperation: React.FC<FindSeperationProps> = ({ peopleList,onFin
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="pure-form">
             <select onChange={(e) => setSource(e.target.value)} value={source}>
             <option value="" disabled selected key={101000}>Select your option</option>
                 {peopleList.filter(person => person !== dest).map((person, idx) => <option value={person} key={idx}>{person}</option>)}
@@ -33,8 +33,8 @@ export const FindSeperation: React.FC<FindSeperationProps> = ({ peopleList,onFin
             <option value="" disabled selected key={101010}>Select your option</option>
                 {peopleList.filter(person => person !== source).map((person, idx) => <option value={person} key={idx}>{person}</option>)}
             </select>
-            <button type="submit">Find Relationship</button>
-            {error}
+            <button type="submit" className="pure-button pure-button-primary">Find Relationship</button>
+            <div className="error-text">{error}</div>
         </form >
     )
 }

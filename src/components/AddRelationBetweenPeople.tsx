@@ -31,7 +31,7 @@ export const AddRelationBetweenPeople: React.FC<AddRelationBetweenPeopleProps> =
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="pure-form">
             <select onChange={(e) => setSource(e.target.value)} value={source}>
                 <option value="" disabled selected key={101000}>Select your option</option>
                 {peopleList.filter(person => person !== dest).map((person, idx) => <option value={person} key={idx}>{person}</option>)}
@@ -44,9 +44,9 @@ export const AddRelationBetweenPeople: React.FC<AddRelationBetweenPeopleProps> =
 
                 {peopleList.filter(person => person !== source).map((person, idx) => <option value={person} key={idx}>{person}</option>)}
             </select>
-            <button type="submit">Add Relationship</button>
+            <button type="submit" className="pure-button pure-button-primary">Add Relationship</button>
             <br />
-            {error}
+            <div className="error-text">{error}</div>
         </form >
     )
 }

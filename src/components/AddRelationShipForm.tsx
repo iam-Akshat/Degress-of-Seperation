@@ -22,13 +22,13 @@ export const AddRelationShipForm: React.FC<AddRelationShipFormProps> = ({ onAddR
                 onAddRelationship(name)
         }
         return (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="pure-form">
                         <label htmlFor="relationship_name_input">Enter a relationship to add</label>
                         <br />
                         <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} id="relationship_name_input" />
-                        <button type="submit">Add</button>
+                        <button type="submit" className="pure-button pure-button-primary">Add</button>
                         <br />
-                        {error}
+                        <div className="error-text">{error}</div>
                 </form>
         );
 }

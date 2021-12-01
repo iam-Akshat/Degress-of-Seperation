@@ -18,13 +18,13 @@ export const AddPersonForm: React.FC<AddPersonFormProps> = ({onAddPerson}) => {
                 onAddPerson(name)  
         } 
         return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="pure-form">
                 <label htmlFor="person_name_input">Enter person name to be added</label>
                 <br />
                 <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} id="person_name_input"/>
-                <button type="submit">Add</button>
+                <button type="submit" className="pure-button pure-button-primary">Add</button>
                 <br />
-                {error}
+                <div className="error-text">{error}</div>
         </form>
         )
 }
