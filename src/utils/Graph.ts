@@ -1,13 +1,13 @@
 import { Set } from "typescript";
 
-interface AdjacencyList {
+export interface AdjacencyList {
     [index: string | number]: Array<string | number>
 }
 
 class Graph {
     adjacencyList!: AdjacencyList;
-    constructor() {
-        this.adjacencyList = {}
+    constructor(adjacencyList?: AdjacencyList) {
+        this.adjacencyList = adjacencyList ? adjacencyList : {}
     }
 
     addVertex(vertex: string | number) {
@@ -36,6 +36,9 @@ class Graph {
         }
         delete this.adjacencyList[vertex];
     }
+    clone(): Graph {
+        return new Graph(this.adjacencyList);
+    }
 }
 
 
@@ -51,7 +54,7 @@ const findAllPathsHelper = (
     answerPaths: Array<Array<string | number>>
     ) => {
     let lastNode = currentPath[currentPath.length - 1]
-    if (lastNode == targetNode) {
+    if (lastNode === targetNode) {
         answerPaths.push([...currentPath])
     } else {
         nodeToNodes[lastNode].forEach(neighbor => {
