@@ -27,6 +27,8 @@ export const AddRelationBetweenPeople: React.FC<AddRelationBetweenPeopleProps> =
             return
         }
         setError("")
+        setSource("")
+        setDest("")
         onAddRelationshipPeople(source, dest)
     }
 
