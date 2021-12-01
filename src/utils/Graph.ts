@@ -1,5 +1,3 @@
-import { Set } from "typescript";
-
 export interface AdjacencyList {
     [index: string | number]: Array<string | number>
 }
